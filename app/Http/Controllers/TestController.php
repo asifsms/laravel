@@ -10,4 +10,8 @@ class TestController extends Controller
    {
        return view('test');
    }
+   public function admin()
+   {
+       return view('admin');
+   }
 }
