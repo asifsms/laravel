@@ -1,0 +1,28 @@
+.outset {
+	border-style: outset;
+	margin: 2%;
+}
+.not-about{
+	width:50px;
+	word-wrap: break-word;
+	background-color: aqua;
+}
+@media screen and (max-width:991px) {
+    .tab-image {
+		padding: 0;
+	}
+}
+@media screen and (max-width:736px) {
+    .tab-image, .tab-info {
+		width: 50%;
+		float: left;
+	}
+}
+@media screen and (max-width:533px) {
+    .tab-image, .tab-info {
+		width: 100%;
+	}
+	.tab-image {
+		margin-bottom: 30px;
+	}
+}

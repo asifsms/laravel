@@ -1,0 +1,39 @@
+.outset {
+	border-style:inset;
+	margin: 2%;
+	width: 100%;
+	padding: 1%;
+}
+.not-about{
+	width:50px;
+	line-break: inherit;
+	/* word-wrap: break-word; */
+	background-color: aqua;
+}
+.rightal{
+	margin-right: 2%;
+	background-color: black;
+}
+.not-image{
+	margin-left: 20px;
+	
+}
+@media screen and (max-width:991px) {
+    .tab-image {
+		padding: 0;
+	}
+}
+@media screen and (max-width:736px) {
+    .tab-image, .tab-info {
+		width: 50%;
+		float: left;
+	}
+}
+@media screen and (max-width:533px) {
+    .tab-image, .tab-info {
+		width: 100%;
+	}
+	.tab-image {
+		margin-bottom: 30px;
+	}
+}
