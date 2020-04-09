@@ -35,3 +35,5 @@ Route::get('/test', 'TestController@index')->name('test');
 Route::get('/admin/profile', 'ProfileController@edit')->name('profile');
 Route::resource('/admin/notification', 'Admin\NotificationController');
 // Route::get('/admin', 'TestController@admin')->name('admin');
+
+
