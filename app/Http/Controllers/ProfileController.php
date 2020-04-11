@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\User;   
+
+use App\Blogger;
 
 class ProfileController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     public function edit()
     {
-        $arr['profiles'] = User::all();
+        $arr['profiles'] = Blogger::all();
         return view('admin.users.edit')->with($arr);
     }
 }

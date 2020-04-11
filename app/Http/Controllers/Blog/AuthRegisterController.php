@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Blog;
 
-use App\User;
-use App\Admin;
-use App\Blogger;
+use App\Bloger;
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class AuthRegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -30,8 +29,9 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
 
+    protected $redirectTo = RouteServiceProvider::HOME;
     /**
      * Create a new controller instance.
      *
@@ -40,8 +40,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest:admin');
-        $this->middleware('guest:blogger');
+        $this->middleware('guest:bloger');
     }
 
     /**
@@ -53,57 +52,28 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'fname' => 'required|max:255',
+            'lname' => 'required|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'required|confirmed|max:255',
         ]);
     }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function showAdminRegisterForm()
-    {
-        return view('auth.register', ['url' => 'admin']);
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
+    // public function validation($request)
+    // {
+    //     return $this->validate($request, [
+    //         'fname' => 'required|max:255',
+    //         'lname' => 'required|max:255',
+    //         'email' => 'required|email|max:255',
+    //         'password' => 'required|confirmed|max:255',
+    //     ]);
+    
+    // }    
+    
     public function showBloggerRegisterForm()
     {
-        return view('auth.register', ['url' => 'blogger']);
+        return view('register', ['url' => 'bloger']);
     }
 
-    /**
-     * @param array $data
-     *
-     * @return mixed
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    protected function createAdmin(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        Admin::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-        return redirect()->intended('login/admin');
-    }
 
     /**
      * @param Request $request
@@ -113,7 +83,7 @@ class RegisterController extends Controller
     protected function createBlogger(Request $request)
     {
         $this->validator($request->all())->validate();
-        Blogger::create([
+        Bloger::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -121,3 +91,4 @@ class RegisterController extends Controller
         return redirect()->intended('login/blogger');
     }
 }
+
