@@ -50,12 +50,21 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+
+        'admin-api' => [
+            'driver' => 'tokens',
+            'provider' => 'admins',
+        ],
         
         'blogger' => [
             'driver' => 'session',
             'provider' => 'bloggers',
         ],
-
+        
+        'blogger-api' => [
+            'driver' => 'token',
+            'provider' => 'bloggers',
+        ],
     ],
 
     /*
@@ -121,12 +130,19 @@ return [
             'throttle' => 60,
         ],
 
-        // 'blogers' => [
-        //     'provider' => 'blogers',
-        //     'table' => 'password_resets',
-        //     'expire' => 60,
-        //     'throttle' => 60,
-        // ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'blogers' => [
+            'provider' => 'blogers',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
 
     /*

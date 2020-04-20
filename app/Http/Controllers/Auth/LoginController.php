@@ -39,9 +39,10 @@ class LoginController extends Controller
    
     public function __construct()
     {
-            $this->middleware('guest')->except('logout');
-            $this->middleware('guest:admin')->except('logout');
-            $this->middleware('guest:blogger')->except('logout');
+            // $this->middleware('guest')->except('logout');
+            // $this->middleware('guest:admin')->except('logout');
+            // $this->middleware('guest:blogger')->except('logout');
+            $this->middleware('guest', ['except'=>['logout','userLogout']]); 
     }
 
      public function showAdminLoginForm()
@@ -80,5 +81,10 @@ class LoginController extends Controller
             return redirect()->intended('/blogger');
         }
         return back()->withInput($request->only('email', 'remember'));
+    }
+    public function userLogout()
+    {
+        Auth::guard('web')->logout();
+        return redirect('/');
     }
 }

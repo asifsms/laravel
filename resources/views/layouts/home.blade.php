@@ -84,7 +84,7 @@
 						</a>
 						
 							
-						<a class="hover-effect scroll" href="{{ route('admin') }}">
+						<a class="hover-effect scroll" href="{{ route('blogger') }}">
 							<span>
 								<span>{{ __('LOGIN') }}</span>
 								<span>{{ __('LOGIN') }}</span>

@@ -46,25 +46,31 @@ Auth::routes();
 // Route::post('custom-register','TestController@register');
 
 // Route::resource('blog-login', 'Blog\LoginController');
-Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
-Route::get('/login/blogger', 'Auth\LoginController@showBloggerLoginForm');
+Route::get('/login/admin', 'Auth\AdminController@showAdminLoginForm');
+Route::get('/login/blogger', 'Auth\BloggerController@showBloggerLoginForm');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 Route::get('/register/blogger','Auth\RegisterController@showBloggerRegisterForm');
 
-Route::post('/login/admin', 'Auth\LoginController@adminLogin');
-Route::post('/login/blogger', 'Auth\LoginController@bloggerLogin');
+Route::post('/login/admin', 'Auth\AdminController@adminLogin')->name('admin.login.submit');
+Route::post('/login/blogger', 'Auth\BloggerController@bloggerLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::post('/register/blogger', 'Auth\RegisterController@createBlogger');
 
 Route::resource('/home', 'User\IndexController')->only(['index', 'show']);
-Route::get('/admin', 'HomeController@admin')->name('admin');
-// Route::view('/admin', 'dashboard');
+// Route::get('/admin', 'HomeController@admin')->name('admin');
+// // Route::view('/admin', 'dashboard');
 Route::get('/admin/profile', 'ProfileController@edit')->name('profile');
 Route::resource('/admin/notification', 'Admin\NotificationController');
-Route::view('/blogger', 'blogger');
+// Route::view('/blogger', 'blogger')->name('blogger');
 
 
 
+// Route::view('/home', 'home')->middleware('auth');
+// Route::view('/admin', 'admin');
+Route::get('/blogger', 'BloggerController@blogger')->name('blogger');
+Route::get('/admin', 'AdminController@admin')->name('admin');
+Route::post('/admin/logout','Auth\AdminController@logout')->name('admin.logout');
+Route::post('/blogger/logout','Auth\BloggerController@bloggerLogout')->name('blogger.logout');
 
 
 

@@ -13,26 +13,29 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+        // $this->middleware('guest:admin')->except('logout');
+    }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    // public function index()
-    // {
-    //     $arr['notifications'] = Notificattion::all();
-    //     return view('hikester')->with($arr); 
-    //     // return view('hikester');
-    // }
-    public function admin()
+    public function index()
     {
-        return view('dashboard');
+        // $arr['notifications'] = Notificattion::all();
+        // return view('hikester')->with($arr); 
+        return view('home');
     }
+    // public function admin()
+    // {
+    //     // return view('dashboard');
+    //     return view('admin');
+        
+    // }
     // public function table()
     // {
     //     return view('table_list');
