@@ -26,8 +26,12 @@ class BloggerController extends Controller
         ]);
 
         if (Auth::guard('blogger')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
+            // $blogger = Blogger::where('email', $request->email)->first();
+            // return view('pages/edit-profile', compact('user));
+            // $arr = $request->email;
+            // $user = Auth::blogger()->id;
             return redirect()->intended('/blogger');
+            // return view('blog.bloggs')->with("aa", $arr);
         }
         return back()->withInput($request->only('email', 'remember'));
     }

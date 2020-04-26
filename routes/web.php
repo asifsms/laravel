@@ -47,9 +47,9 @@ Auth::routes();
 
 // Route::resource('blog-login', 'Blog\LoginController');
 Route::get('/login/admin', 'Auth\AdminController@showAdminLoginForm');
-Route::get('/login/blogger', 'Auth\BloggerController@showBloggerLoginForm');
+Route::get('/login/blogger', 'Auth\BloggerController@showBloggerLoginForm')->name('blogger.login');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
-Route::get('/register/blogger','Auth\RegisterController@showBloggerRegisterForm');
+Route::get('/register/blogger','Auth\RegisterController@showBloggerRegisterForm')->name('blogger.register');
 
 Route::post('/login/admin', 'Auth\AdminController@adminLogin')->name('admin.login.submit');
 Route::post('/login/blogger', 'Auth\BloggerController@bloggerLogin');
@@ -61,13 +61,10 @@ Route::resource('/home', 'User\IndexController')->only(['index', 'show']);
 // // Route::view('/admin', 'dashboard');
 Route::get('/admin/profile', 'ProfileController@edit')->name('profile');
 Route::resource('/admin/notification', 'Admin\NotificationController');
-// Route::view('/blogger', 'blogger')->name('blogger');
-
-
-
+Route::get('/blogger', 'BloggerController@blogger')->name('blogger');
 // Route::view('/home', 'home')->middleware('auth');
 // Route::view('/admin', 'admin');
-Route::get('/blogger', 'BloggerController@blogger')->name('blogger');
+Route::resource('/user-blogg', 'Blog\BloggController');
 Route::get('/admin', 'AdminController@admin')->name('admin');
 Route::post('/admin/logout','Auth\AdminController@logout')->name('admin.logout');
 Route::post('/blogger/logout','Auth\BloggerController@bloggerLogout')->name('blogger.logout');
