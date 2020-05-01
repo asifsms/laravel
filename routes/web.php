@@ -61,6 +61,7 @@ Route::resource('/home', 'User\IndexController')->only(['index', 'show']);
 // // Route::view('/admin', 'dashboard');
 Route::get('/admin/profile', 'ProfileController@edit')->name('profile');
 Route::resource('/admin/notification', 'Admin\NotificationController');
+Route::resource('/admin/image', 'Admin\ImageController');
 Route::get('/blogger', 'BloggerController@blogger')->name('blogger');
 // Route::view('/home', 'home')->middleware('auth');
 // Route::view('/admin', 'admin');
@@ -68,6 +69,7 @@ Route::resource('/user-blogg', 'Blog\BloggController');
 Route::get('/admin', 'AdminController@admin')->name('admin');
 Route::post('/admin/logout','Auth\AdminController@logout')->name('admin.logout');
 Route::post('/blogger/logout','Auth\BloggerController@bloggerLogout')->name('blogger.logout');
+Route::resource('/single-blogg', 'Blog\SingleBloggController');
 
 
 

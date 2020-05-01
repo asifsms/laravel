@@ -21,7 +21,10 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <h4>Hikester Community</h4>
+          <a href="{{ route('home.index') }}">
+            <img src="{{ asset('images/logo.jpg') }}" alt="Hikester" style="height: 40px;margin-right: 5px">
+          </a>
+          <h4>Hikester Community</h4>
           {{--  <a class="navbar-brand logo_h" href="index.html"><img src="{{ asset('images/bloggs/img/logo.png') }}" alt=""></a>  --}}
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,17 +35,7 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li class="nav-item"><a class="nav-link" href="{{ route('blogger') }}">Home</a></li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Shop</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-                </ul>
-							</li>
+              
               <li class="nav-item active submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Blog</a>
@@ -57,7 +50,7 @@
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
                   <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
+                 
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -72,6 +65,7 @@
               <li class="nav-item"><button><i class="ti-bell"></i><span class="nav-shop__circle">3</span></button> </li>
               <li class="nav-item dropdown submenu"><a class="button button-header dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">{{ $aaa->name }}</a>
                 <ul class="dropdown-menu">
+                  <li class="nav-item" style="padding-left: 39px"><a class="dropdown-item" href="register.html">Profile</a></li>
                   <li class="nav-item">
                     <a class="dropdown-item" href="{{ route('blogger.logout') }}"
                     onclick="event.preventDefault();
@@ -82,8 +76,8 @@
                  <form id="logout-form" action="{{ route('blogger.logout') }}" method="POST" style="display: none;">
                      @csrf
                  </form></li>
-                  <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
-                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
+                  
+                  
                 </ul>
               </li>
             </ul>
@@ -125,7 +119,7 @@
   <section class="instagram_area">
     <div class="container box_1620">
       <div class="insta_btn">
-        <a class="btn theme_btn" href="#">Follow us on instagram</a>
+        <a class="btn theme_btn" href="https://www.instagram.com/hikester___/">Follow us on instagram</a>
       </div>
       <div class="instagram_image row m0">
         <a href="#"><img src="{{ asset('images/bloggs/img/instagram/ins-1.jpg') }}" alt=""></a>
@@ -142,10 +136,16 @@
 
   <!--================ Start footer Area  =================-->	
 	<footer>
-		<div class="footer-area">
+		<div class="footer-area" style="padding-bottom: 20px">
 			<div class="container">
 				<div class="row section_gap">
 					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<img src="{{ asset('images/logo.jpg') }}" alt="Hikester" style="height: 150px;margin-top: 30px">
+							
+						</div>
+					</div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
 						<div class="single-footer-widget tp_widgets">
 							<h4 class="footer_title large_title">Our Mission</h4>
 							<p>
@@ -157,30 +157,18 @@
 							</p>
 						</div>
 					</div>
-					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
-						<div class="single-footer-widget tp_widgets">
-							<h4 class="footer_title">Quick Links</h4>
-							<ul class="list">
-								<li><a href="#">Home</a></li>
-								<li><a href="#">Shop</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">Product</a></li>
-								<li><a href="#">Brand</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</div>
-					</div>
 					<div class="col-lg-2 col-md-6 col-sm-6">
 						<div class="single-footer-widget instafeed">
-							<h4 class="footer_title">Gallery</h4>
-							<ul class="list instafeed d-flex flex-wrap">
+              <h4 class="footer_title">Gallery</h4>
+              <a href=""><ul class="list instafeed d-flex flex-wrap">
 								<li><img src="{{ asset('images/bloggs/img/gallery/r1.jpg') }}" alt=""></li>
 								<li><img src="{{ asset('images/bloggs/img/gallery/r2.jpg') }}" alt=""></li>
 								<li><img src="{{ asset('images/bloggs/img/gallery/r3.jpg') }}" alt=""></li>
 								<li><img src="{{ asset('images/bloggs/img/gallery/r5.jpg') }}" alt=""></li>
-								<li><img src="{{ asset('images/bloggs/img/gallery/r7.jpg') }}" alt=""></li>
-								<li><img src="{{ asset('images/bloggs/img/gallery/r8.jpg') }}" alt=""></li>
-							</ul>
+								{{--  <li><img src="{{ asset('images/bloggs/img/gallery/r7.jpg') }}" alt=""></li>
+								<li><img src="{{ asset('images/bloggs/img/gallery/r8.jpg') }}" alt=""></li>  --}}
+							</ul></a>
+							
 						</div>
 					</div>
 					<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
@@ -191,15 +179,15 @@
 									<span class="fa fa-location-arrow"></span>
 									Head Office
 								</p>
-								<p>123, Main Street, Your City</p>
+								<p>Calicut, Kerala, India</p>
 	
 								<p class="sm-head">
 									<span class="fa fa-phone"></span>
 									Phone Number
 								</p>
 								<p>
-									+123 456 7890 <br>
-									+123 456 7890
+									+91 9645 4424 46 <br>
+									
 								</p>
 	
 								<p class="sm-head">
@@ -207,23 +195,12 @@
 									Email
 								</p>
 								<p>
-									free@infoexample.com <br>
-									www.infoexample.com
+									hikesterlife@gmail.com <br>
+									
 								</p>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row d-flex">
-					<p class="col-lg-12 footer-text text-center">
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 				</div>
 			</div>
 		</div>

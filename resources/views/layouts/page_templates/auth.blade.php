@@ -20,7 +20,7 @@
         </li>
         <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
           <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
-            <i><img style="width:25px" src="{{ asset('material/img/laravel.svg') }}"></i>
+            <i class="material-icons">person</i>
             <p>{{ __('Users') }}
               <b class="caret"></b>
             </p>
@@ -48,11 +48,11 @@
               <p>{{ __('Notification') }}</p>
           </a>
         </li>
-        <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-          {{-- <a class="nav-link" href="{{ route('typography') }}">
-            <i class="material-icons">library_books</i>
-              <p>{{ __('Typography') }}</p>
-          </a> --}}
+        <li class="nav-item{{ $activePage == 'images' ? ' active' : '' }}">
+          <a class="nav-link" href="{{ route('image.index') }}">
+            <i class="material-icons">image</i>
+              <p>{{ __('Images') }}</p>
+          </a>
         </li>
         <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
           {{-- <a class="nav-link" href="{{ route('icons') }}">
@@ -166,37 +166,8 @@
     @yield('content')
     <footer class="footer">
       <div class="container-fluid">
-        <nav class="float-left">
-          <ul>
-            <li>
-              <a href="https://www.creative-tim.com">
-                  {{ __('Creative Tim') }}
-              </a>
-            </li>
-            <li>
-              <a href="https://creative-tim.com/presentation">
-                  {{ __('About Us') }}
-              </a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com">
-                  {{ __('Blog') }}
-              </a>
-            </li>
-            <li>
-              <a href="https://www.creative-tim.com/license">
-                  {{ __('Licenses') }}
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="copyright float-right">
-          &copy;
-          <script>
-            document.write(new Date().getFullYear())
-          </script>, made with <i class="material-icons">favorite</i> by
-          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> and <a href="https://www.updivision.com" target="_blank">UPDIVISION</a> for a better web.
-        </div>
+        
+        
       </div>
     </footer>
   </div>

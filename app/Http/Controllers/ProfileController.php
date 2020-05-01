@@ -9,10 +9,11 @@ use App\Blogger;
 
 class ProfileController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        // $this->middleware('guest:admin')->except('logout');
+    }
     public function edit()
     {
         $arr['profiles'] = Blogger::all();

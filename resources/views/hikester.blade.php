@@ -44,42 +44,6 @@
 							</li>
 							@endforeach
 							@endif
-
-							{{--  <li>
-								<h4>"Kasol - Kheerganga"</h4>
-								<div class="gallery-grids">
-									<a class="example-image-link" href="{{ asset('images/kheerganga.jpg') }}"
-										data-lightbox="example-set" data-title="">
-										<div class="col-md-5 col-sm-5 tab-image">
-											<img src="{{ asset('images/kheerganga.jpg') }}" alt="Hikester">
-										</div>
-									</a></div>
-								<div class="col-md-7 col-sm-7 tab-info">
-									<p>Kasol is situated in Parvati Valley, on the banks of the Parvati River,
-										on the way between Bhuntar and Manikaran. It is located 30 km
-										from Bhuntar and 3.5 km from Manikaran. Kheerganga in Parvati
-										valley offers a mystical journey into woods and is one of gifted abode
-										for Natural Sulphur Hot water springs. The valley offers beautiful
-										view of Parvati River and the Glacier of Indian Himalayas.</p>
-								</div>
-							</li>
-							<li>
-								<h4>"Manali - Solang valley"</h4>
-								<div class="gallery-grids">
-									<a class="example-image-link" href="{{ asset('images/poster-1.jpg') }}" data-lightbox="example-set"
-										data-title="">
-										<div class="col-md-5 col-sm-5 tab-image">
-											<img src="{{ asset('images/poster-1.jpg') }}" alt="Hikester">
-										</div>
-									</a></div>
-								<div class="col-md-7 col-sm-7 tab-info">
-									<p>Manali is a high altitude Himalayan resort town in India northern
-										Himachal pradesh state. It has a reputation as a backpacking center
-										and honeymoon destination. Solang valley is also known as adventure
-										valley lies between Solang village and Beas kund. It offers a beautiful
-										view of glaciers and snow caped mountains.</p>
-								</div>
-							</li>  --}}
 						</ul>
 					</div>
 				</section>
