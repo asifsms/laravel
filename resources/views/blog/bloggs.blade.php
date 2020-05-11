@@ -99,9 +99,9 @@
                                     <a href="single-blog.html">
                                         <h2>{{ $b->title }}</h2>
                                     </a>
-                                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand
-                                        why you should have to spend money on boot camp when you can get the MCSE study
-                                        materials yourself at a fraction.</p>
+                                    <div style="width: 100%; word-wrap: break-word;">
+                                        <p> {{ substr(strip_tags($b->about), 0, 800) }}.......</p>
+                                        </div>
                                     <a class="button button-blog" href="{{route('single-blogg.show',$b->id)}}">View More</a>
                                 </div>
                             </div>

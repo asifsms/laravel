@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Image;
 class ImageController extends Controller
 {
     /**
@@ -19,7 +19,9 @@ class ImageController extends Controller
     }
     public function index()
     {
-        return view('admin.images.images');
+        $photos = Image::all();
+       
+        return view('admin.images.images', compact('photos'));
     }
 
     /**
@@ -38,9 +40,32 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Image $image)
     {
-        //
+        
+        // $images = $request->file('photos');
+        if ($request->hasFile('photos')) {
+            foreach ($request->file('photos') as $photo) {
+                $filename = $photo->getClientOriginalName();
+                $ext = $photo->getClientOriginalExtension();
+                $file = date('YmdHis').rand(1,9999).'.'.$ext;
+                $photo->storeAs('public/images',$file);
+                $arr[] = $file;
+               
+                
+                }
+                $image->location = $request->location;
+                
+                $image->filename = json_encode($arr);
+                $image->save();
+                
+            }
+            else{
+                $file = '';
+            }
+        
+        return redirect('admin/image');  
+        
     }
 
     /**
