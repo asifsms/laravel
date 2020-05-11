@@ -49,12 +49,12 @@
             <?php foreach (json_decode($p->filename)as $b){ ?>
             <img class="img-responsive" src="{{ asset('/storage/images/'.$b) }}" alt="Hikester" style="height: 200px;margin-top: 12px;">
             <?php } ?>
-            <a class="example-image-link" href="{{  asset('/storage/images/'.$b) }}"
+            {{--  <a class="example-image-link" href="{{  asset('/storage/images/'.$b) }}"
               data-lightbox="example-set" data-title="">
               <div class="col-md-5 col-sm-5 tab-image">
                 <img src="{{  asset('/storage/images/'.$b) }}" alt="Hikester" style="height:200px">
               </div>
-            </a>
+            </a>  --}}
         
       </div>
      
