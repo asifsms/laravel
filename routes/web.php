@@ -48,6 +48,7 @@ Auth::routes();
 // Route::resource('blog-login', 'Blog\LoginController');
 Route::get('/login/admin', 'Auth\AdminController@showAdminLoginForm');
 Route::get('/login/blogger', 'Auth\BloggerController@showBloggerLoginForm')->name('blogger.login');
+// Route::get('/login', 'Auth\BloggerController@showBloggerLoginForm')->name('blogger.login');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 Route::get('/register/blogger','Auth\RegisterController@showBloggerRegisterForm')->name('blogger.register');
 
@@ -63,6 +64,7 @@ Route::get('/admin/profile', 'ProfileController@edit')->name('profile');
 Route::resource('/admin/notification', 'Admin\NotificationController');
 Route::resource('/admin/image', 'Admin\ImageController');
 Route::get('/blogger', 'BloggerController@blogger')->name('blogger');
+
 // Route::view('/home', 'home')->middleware('auth');
 // Route::view('/admin', 'admin');
 Route::resource('/user-blogg', 'Blog\BloggController');

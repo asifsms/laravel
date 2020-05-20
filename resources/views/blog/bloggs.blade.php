@@ -59,6 +59,13 @@
             <div class="col-lg-8">
                 <div class="blog_left_sidebar">
                     @foreach ($bloggs as $b )
+                        {{-- @foreach ($bloggers as $item)
+                        {{$item->id = $b->uid}} --}}
+                            {{-- @if ($b->uid == $item->id)
+                                
+                            {{ $item->name }}
+                            @endif --}}
+                        
                     <article class="row blog_item">
                         <div class="col-md-3">
                             <div class="blog_info text-right">
@@ -93,7 +100,18 @@
                             </div>
                         </div>
                         <div class="col-md-9">
+                            <div class="row" style="height">
+                                <img src="{{ asset('images/bloggs/img/user2.png') }}" alt="Hikester" style="height: 50px; border-radius: 40%; margin-left: 2%;display: inline">
+                                <div class="col-md-3 col-sm-3" style="margin-top: .5%; display: inline; width: 200px">
+                                    <h6>{{ $b->user->name }}</h6>
+                                    <i class="lnr lnr-calendar-full"></i>
+                                    {{ $b->created_at->todatestring() }}
+                                </div>
+                                
+                            </div>
                             <div class="blog_post">
+                                {{-- {{ $item->name }} --}}
+                               
                                 <img src="{{ asset('/storage/bloggs/'.$b->poster) }}" alt="">
                                 <div class="blog_details">
                                     <a href="single-blog.html">
@@ -107,6 +125,7 @@
                             </div>
                         </div>
                     </article>
+                    {{-- @endforeach --}}
                     @endforeach
                     
                    

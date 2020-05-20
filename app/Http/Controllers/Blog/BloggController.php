@@ -26,6 +26,7 @@ class BloggController extends Controller
         $arr = auth()->user();
         $bid= $arr->id;
         $blogg['bloggs'] = Blogg::where('uid', $bid)->orderBy('created_at', 'desc')->get();
+        
         // $blogg['bloggs'] = Blogg::all();
         
         return view('blog.user-blogg')->with($blogg)->withAaa($arr);

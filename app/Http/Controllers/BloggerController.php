@@ -18,9 +18,11 @@ class BloggerController extends Controller
     public function blogger()
     {
         $arr = auth()->user();
-        $blogg['bloggs'] = Blogg::all();
+        // $blogg['bloggs'] = Blogg::all();
+        // $blogger['bloggers'] = Blogger::all();
+        $blogg = Blogg::with('user')->get();
         // $arr = 'aaaaaa';
-        return view('blog.bloggs')->withAaa($arr)->with($blogg);
+        return view('blog.bloggs')->withAaa($arr)->withBloggs($blogg);
     }
 }
 
